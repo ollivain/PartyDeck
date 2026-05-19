@@ -390,6 +390,10 @@ input:focus {
   gap: 10px;
 }
 
+.variant-actions.single {
+  grid-template-columns: 1fr;
+}
+
 .mode-button {
   min-height: 76px;
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -402,6 +406,11 @@ input:focus {
 
 .mode-button:last-child {
   background: linear-gradient(145deg, rgba(255, 79, 216, 0.26), rgba(255, 255, 255, 0.1));
+}
+
+.mode-button.wide {
+  display: block;
+  width: 100%;
 }
 
 .mode-button span,
@@ -462,6 +471,162 @@ input:focus {
   color: var(--accent-2);
   font-size: 1.05rem;
   font-weight: 800;
+}
+
+.custom-game {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.playing-card {
+  display: inline-grid;
+  width: min(70vw, 230px);
+  aspect-ratio: 2.5 / 3.5;
+  place-items: center;
+  align-self: center;
+  justify-self: center;
+  border: 3px solid rgba(255, 255, 255, 0.86);
+  border-radius: 22px;
+  color: #17111d;
+  background: #fff8ff;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+  font-size: clamp(4rem, 22vw, 6.8rem);
+  line-height: 1;
+}
+
+.playing-card.red,
+.mini-card.red {
+  color: #e03454;
+}
+
+.playing-card.black,
+.mini-card.black {
+  color: #18121f;
+}
+
+.game-status,
+.bus-step,
+.mini-note {
+  display: block;
+}
+
+.game-status {
+  color: var(--accent-3);
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.bus-step {
+  color: var(--text);
+  font-size: clamp(1.7rem, 8vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+.mini-note {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.choice-button {
+  min-height: 58px;
+  border-radius: 16px;
+  color: #0c0f17;
+  background: var(--accent-2);
+  font-weight: 800;
+}
+
+.card-row,
+.pyramid-grid,
+.player-hands {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.mini-card {
+  display: inline-grid;
+  min-width: 44px;
+  min-height: 58px;
+  place-items: center;
+  border-radius: 10px;
+  padding: 6px;
+  background: #fff8ff;
+  color: #18121f;
+  font-size: 1.05rem;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+}
+
+.hidden-card {
+  color: rgba(255, 255, 255, 0.78);
+  background: linear-gradient(145deg, rgba(255, 79, 216, 0.45), rgba(88, 230, 255, 0.22));
+}
+
+.pyramid-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.pyramid-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.player-hands {
+  display: grid;
+  justify-content: stretch;
+  gap: 9px;
+  margin-top: 4px;
+  text-align: left;
+}
+
+.hand-row {
+  display: grid;
+  grid-template-columns: minmax(70px, 0.5fr) 1fr;
+  align-items: center;
+  gap: 8px;
+  border-radius: 14px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hand-row > span {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.dice-face {
+  display: inline-grid;
+  width: min(56vw, 210px);
+  aspect-ratio: 1;
+  place-items: center;
+  justify-self: center;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 34px;
+  color: #0d0a12;
+  background: linear-gradient(135deg, var(--accent-3), var(--accent-2));
+  box-shadow: 0 18px 44px rgba(88, 230, 255, 0.2);
+  font-size: clamp(5rem, 24vw, 7rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.dice-face.is-rolling {
+  animation: dice-wiggle 140ms linear infinite;
 }
 
 .play-actions {
@@ -582,6 +747,18 @@ footer {
   }
 }
 
+@keyframes dice-wiggle {
+  0% {
+    transform: rotate(-4deg) scale(0.98);
+  }
+  50% {
+    transform: rotate(5deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(-3deg) scale(1);
+  }
+}
+
 @media (min-width: 720px) {
   .app-shell {
     padding-block: 34px;
@@ -612,5 +789,13 @@ footer {
   .setting-row {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .choice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hand-row {
+    grid-template-columns: 1fr;
   }
 }
