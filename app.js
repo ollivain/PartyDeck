@@ -1,4 +1,5 @@
 const STORAGE_KEY = "partydeck.players";
+const WATER_BREAK_STORAGE_KEY = "partydeck.waterBreaksEnabled";
 const WATER_BREAK_CHANCE = 0.12;
 
 const waterBreaks = [
@@ -191,6 +192,7 @@ const games = [
 
 const state = {
   players: readPlayers(),
+  waterBreaksEnabled: readWaterBreakPreference(),
   activeGameId: null,
   activeVariantId: null,
   decks: buildDecks(),
@@ -208,6 +210,8 @@ const elements = {
   playerForm: document.querySelector("[data-player-form]"),
   playerInput: document.querySelector("#player-name"),
   playerList: document.querySelector("[data-player-list]"),
+  waterBreakToggle: document.querySelector("[data-water-break-toggle]"),
+  waterBreakLabel: document.querySelector("[data-water-break-label]"),
   gameTitle: document.querySelector("[data-game-title]"),
   roundLabel: document.querySelector("[data-round-label]"),
   promptCard: document.querySelector("[data-prompt-card]"),
@@ -221,8 +225,10 @@ const elements = {
 
 document.addEventListener("click", handleClick);
 elements.playerForm.addEventListener("submit", addPlayer);
+elements.waterBreakToggle.addEventListener("change", updateWaterBreakPreference);
 
 renderPlayers();
+renderWaterBreakPreference();
 renderGames();
 
 function handleClick(event) {
@@ -332,7 +338,8 @@ function showNextCard(options = {}) {
   const variant = getActiveVariant();
   if (!game) return;
 
-  const useWaterBreak = !options.forcePrompt && Math.random() < WATER_BREAK_CHANCE;
+  const useWaterBreak =
+    state.waterBreaksEnabled && !options.forcePrompt && Math.random() < WATER_BREAK_CHANCE;
   const text = useWaterBreak ? randomItem(waterBreaks) : drawPrompt(game, variant);
   const kicker = useWaterBreak ? "Vesitauko" : `${game.promptLabel} · ${variant.title}`;
 
@@ -417,12 +424,35 @@ function savePlayers() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state.players));
 }
 
+function updateWaterBreakPreference() {
+  state.waterBreaksEnabled = elements.waterBreakToggle.checked;
+  localStorage.setItem(WATER_BREAK_STORAGE_KEY, JSON.stringify(state.waterBreaksEnabled));
+  renderWaterBreakPreference();
+}
+
+function renderWaterBreakPreference() {
+  elements.waterBreakToggle.checked = state.waterBreaksEnabled;
+  elements.waterBreakLabel.textContent = state.waterBreaksEnabled ? "Päällä" : "Pois";
+}
+
 function readPlayers() {
   try {
     const stored = JSON.parse(localStorage.getItem(STORAGE_KEY));
     return Array.isArray(stored) ? stored.filter(Boolean) : [];
   } catch {
     return [];
+  }
+}
+
+function readWaterBreakPreference() {
+  const stored = localStorage.getItem(WATER_BREAK_STORAGE_KEY);
+
+  if (stored === null) return true;
+
+  try {
+    return JSON.parse(stored) === true;
+  } catch {
+    return true;
   }
 }
 

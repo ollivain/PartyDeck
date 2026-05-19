@@ -61,6 +61,20 @@
           <ul class="player-list" data-player-list aria-live="polite"></ul>
         </section>
 
+        <section class="panel settings-panel" aria-labelledby="settings-title">
+          <div class="setting-row">
+            <div>
+              <h3 id="settings-title">Pelin asetukset</h3>
+              <p>Voit päättää tuleeko väliin vesitaukokortteja.</p>
+            </div>
+            <label class="toggle-control">
+              <input type="checkbox" data-water-break-toggle />
+              <span class="toggle-track" aria-hidden="true"></span>
+              <span class="toggle-text" data-water-break-label>Päällä</span>
+            </label>
+          </div>
+        </section>
+
         <section class="game-grid" aria-label="Pelit" data-game-list></section>
       </section>
 
