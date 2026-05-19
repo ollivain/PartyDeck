@@ -164,47 +164,137 @@ const mostLikelyModes = {
   ],
 };
 
-const truthOrDareModes = {
+const truthOrDareContent = {
   chill: {
-    truth: [
-      "Mikä on noloin asia, jonka olet tehnyt tällä viikolla?",
-      "Mikä on oudoin tapasi?",
-      "Mikä biisi kuvaa sinua parhaiten?",
-      "Mikä on huonoin tekosyy, jota olet käyttänyt?",
+    truths: [
+      "Mikä on arkisin moka, jolle nauroit vasta myöhemmin?",
+      "Mikä sovellus vie sinulta eniten aikaa ilman hyvää syytä?",
+      "Mikä biisi saa sinut laulamaan mukana, vaikka et osaisi sanoja?",
+      "Mikä on huonoin tekosyy, jolla olet myöhästynyt?",
+      "Mikä on oudoin tapa, joka sinulla on kotona?",
       "Kuka tässä porukassa saa sinut nauramaan helpoiten?",
-      "Mikä oli viimeisin asia, jota googlasit?",
-      "Mikä on lempimukavuusruokasi?",
-      "Mikä on pieni asia, josta ärsyynnyt helposti?",
-      "Mikä on hauskin muistosi viime ajoilta?",
-      "Mitä et osaa, vaikka pitäisi?",
+      "Mikä ruoka pelastaa huonon päivän?",
+      "Mikä pieni asia ärsyttää sinua aivan liikaa?",
+      "Mikä oli viimeisin asia, jonka googlasit turhaan?",
+      "Mikä lapsuuden muisto naurattaa sinua vieläkin?",
+      "Mikä on asia, jota et osaa, vaikka kaikkien mielestä pitäisi?",
+      "Mikä on puhelimesi turhin ilmoitus?",
+      "Mikä on oudoin ostos, jonka olet tehnyt hetken mielijohteesta?",
+      "Mikä elokuva tai sarja on sinulle mukavuuskatsottavaa?",
+      "Mikä on noloin väärin kuulemasi laulun sana?",
+      "Mikä on asia, jonka unohdat jatkuvasti?",
+      "Mikä on kaveriporukan roolisi yhdellä sanalla?",
+      "Mikä on hauskin kuva, joka sinusta voisi löytyä kamerarullasta?",
+      "Mikä on outo ruokayhdistelmä, josta oikeasti pidät?",
+      "Mikä on kevyin asia, josta olet teeskennellyt tietäväsi enemmän?",
+      "Mikä on viimeisin asia, jolle nauroit yksin?",
+      "Mikä on huonoin neuvo, jota olet joskus seurannut?",
+      "Mikä on asia, jonka teet aina viime tipassa?",
+      "Mikä on hauskin väärinkäsitys, johon olet joutunut?",
+      "Mikä on lempisana tai sanonta, jota käytät liikaa?",
+      "Mikä on asia, jonka ostaisit heti, jos se olisi alennuksessa?",
+      "Mikä on noloin nimi, jonka olet antanut esineelle tai laitteelle?",
+      "Mikä on taito, jonka haluaisit oppia yhdessä illassa?",
+      "Mikä on kaveriporukan sisäpiirivitsi, jota et jaksa selittää muille?",
+      "Mikä on kevyesti nolo asia, jonka teit tänään?",
+      "Mikä on asia, jota lykkäät aina huomiselle?",
+      "Mikä on paras välipala keskellä yötä?",
+      "Mikä on hassuin pelkosi?",
+      "Mikä on viimeisin asia, jonka unohdit huoneesta toiseen kävellessä?",
+      "Mikä on lempitekosyysi poistua keskustelusta?",
+      "Mikä on turhin fakta, jonka muistat ulkoa?",
+      "Mikä on asia, jossa olet yllättävän kilpailuhenkinen?",
+      "Mikä on kiltisti noloin somehetkesi?",
+      "Mikä on paras kehu, jonka olet saanut kaverilta?",
+      "Mikä on asia, jonka tekisit uudestaan vain tarinan takia?",
     ],
-    dare: [
+    dares: [
       "Tee 5 sekunnin tanssiliike.",
       "Keksi itsellesi uusi lempinimi loppukierroksen ajaksi.",
       "Puhu seuraava kierros kuin urheiluselostaja.",
       "Kehu vasemmalla olevaa pelaajaa.",
-      "Näytä viimeisin käyttämäsi emoji.",
+      "Näytä viimeisin käyttämäsi emoji ja selitä se.",
       "Matki jotain julkkista 5 sekuntia.",
       "Vaihda paikkaa jonkun kanssa.",
-      "Kerro huono vitsi.",
+      "Kerro huono vitsi niin itsevarmasti kuin pystyt.",
       "Ota dramaattinen poseeraus.",
       "Laula yksi rivi valitsemastasi biisistä.",
+      "Keksi ryhmälle uusi bändinimi.",
+      "Puhu seuraava lause kuiskaten kuin salainen agentti.",
+      "Tee mainos lähimmälle esineelle.",
+      "Matki sääennustajaa 10 sekuntia.",
+      "Anna oikealla olevalle pelaajalle palkinto ja keksi palkinnon nimi.",
+      "Tee käsilläsi ilotulitus.",
+      "Keksi uusi tervehdys ja käytä sitä seuraavalla kierroksella.",
+      "Sano aakkoset niin dramaattisesti kuin pystyt.",
+      "Tee ääniefekti, joka kuvaa tätä iltaa.",
+      "Valitse joku ja antakaa toisillenne keksityt taiteilijanimet.",
+      "Kerro yhden lauseen satu tästä porukasta.",
+      "Pidä kolmen sekunnin voitonpuhe.",
+      "Tee hidastettu high five ilmaan.",
+      "Lue seuraava kortti kuin uutisankkuri.",
+      "Keksi uusi sääntö, joka on voimassa vain yhden kierroksen.",
+      "Tee paras robottikävelysi paikallasi.",
+      "Näytä ilme, jolla pyytäisit viimeisen pizzapalan.",
+      "Keksi nopeasti slogan PartyDeckille.",
+      "Sano jokaisesta pelaajasta yksi mukava sana.",
+      "Tee tuuletus kuin voitit arvonnan.",
+      "Puhu 15 sekuntia ilman r-kirjainta.",
+      "Tee lyhyt pantomiimi: kadonnut puhelin.",
+      "Keksi itsellesi sisääntulomusiikki ja hyräile sitä.",
+      "Näytä, miten kävelisit punaista mattoa pitkin.",
+      "Kerro päivän sää omalla mielialallasi.",
+      "Tee 5 sekunnin mainos vesitauosta.",
+      "Matki jotakuta pelaajaa ystävällisesti ja anna muiden arvata.",
+      "Nimeä lähin esine uudelleen ja esittele se.",
+      "Puhu seuraavat 20 sekuntia kuin vanhan ajan radiojuontaja.",
+      "Keksi porukalle salainen kädenheilautus.",
     ],
   },
   spicy: {
-    truth: [
+    truths: [
       "Kuka tässä porukassa on eniten sinun tyyppiäsi?",
-      "Mikä on flirttailevin viesti, jonka olet lähettänyt?",
+      "Mikä on rohkein flirttaileva viesti, jonka olet uskaltanut lähettää?",
       "Milloin viimeksi punastuit jonkun takia?",
       "Oletko koskaan ihastunut kaverin kaveriin?",
       "Kuka tässä porukassa vaikuttaa parhaimmalta treffeillä?",
-      "Mikä on suurin turn-on persoonassa?",
-      "Mikä on suurin turn-off?",
+      "Mikä on suurin turn-on persoonassa kevyellä tasolla?",
+      "Mikä on suurin turn-off, jota et sanoisi ensitreffeillä?",
       "Oletko koskaan stalkannut jonkun somea liian pitkään?",
       "Mikä on rohkein aloite, jonka olet tehnyt?",
       "Kuka tässä porukassa osaa mielestäsi flirttailla parhaiten?",
+      "Mikä on noloin treffimokasi?",
+      "Millainen viesti saa sinut hymyilemään heti?",
+      "Oletko koskaan miettinyt liikaa yhtä emoji-vastausta?",
+      "Kuka tässä porukassa olisi paras wingman?",
+      "Mikä on romanttisin asia, jonka olet tehnyt nolostumatta?",
+      "Mikä on pieni ele, joka toimii sinuun yllättävän hyvin?",
+      "Oletko koskaan ihastunut pelkän äänen perusteella?",
+      "Kuka tässä porukassa näyttäisi parhaalta treffi-illallisella?",
+      "Mikä on flirttailutyyli, jota et osaa vastustaa?",
+      "Oletko koskaan poistanut viestiä, koska se tuntui liian rohkealta?",
+      "Mikä on noloin tapa, jolla olet yrittänyt tehdä vaikutuksen?",
+      "Kuka tässä porukassa vaikuttaa salaa romantikolta?",
+      "Mikä on viimeisin asia, joka sai sinut vähän hämilleen?",
+      "Oletko koskaan lähettänyt viestin ja odottanut vastausta liian intensiivisesti?",
+      "Mikä on lempikehusi, jonka haluaisit kuulla?",
+      "Kuka tässä porukassa voittaisi flirttikilpailun?",
+      "Mikä on huonoin iskurepliikki, joka voisi silti naurattaa sinua?",
+      "Oletko koskaan ollut treffeillä, joilta halusit paeta kohteliaasti?",
+      "Mikä tekee ihmisestä sinulle kiinnostavan heti alussa?",
+      "Kuka tässä porukassa saisi sinut lähtemään ex tempore -seikkailuun?",
+      "Mikä on asia, jota esität rennommin kuin oikeasti olet?",
+      "Oletko koskaan flirttaillut vahingossa ja tajunnut sen liian myöhään?",
+      "Mikä on paras tapa aloittaa keskustelu kanssasi?",
+      "Kuka tässä porukassa olisi paras järjestämään yllätysdeitit?",
+      "Mikä on pieni romanttinen klisee, josta pidät salaa?",
+      "Oletko koskaan katunut, ettet tehnyt aloitetta?",
+      "Mikä on kiusallisin asia, jonka olet sanonut ihastukselle?",
+      "Kuka tässä porukassa näyttää viattomalta, mutta osaa varmasti flirttailla?",
+      "Mikä on viimeisin kohteliaisuus, joka jäi mieleesi?",
+      "Mikä olisi sinulle täydellinen kevyt flirttitilanne?",
     ],
-    dare: [
+    dares: [
       "Anna valitsemallesi pelaajalle kehu, joka saa hänet punastumaan, tai ota rangaistus.",
       "Pidä katsekontakti valitsemasi pelaajan kanssa 10 sekuntia tai ota rangaistus.",
       "Lähetä flirttaileva katse jollekin pelaajalle.",
@@ -215,10 +305,50 @@ const truthOrDareModes = {
       "Istu seuraava kierros eri paikassa jonkun vieressä.",
       "Kerro, kuka pelaajista olisi paras wingman.",
       "Anna yhdelle pelaajalle uusi flirttaileva lempinimi.",
+      "Keksi itsellesi deittisovelluksen bio yhdellä lauseella.",
+      "Sano yhdelle pelaajalle kehu kuin olisit romanttisessa komediassa.",
+      "Valitse joku ja pitäkää äänetön flirttikohtaus 5 sekuntia ilman kosketusta.",
+      "Kerro ääneen huonoin iskurepliikki, jonka keksit.",
+      "Anna porukalle neuvo täydelliseen ensiviestiin.",
+      "Valitse pelaaja ja kysy häneltä yksi kevyt spicy-kysymys.",
+      "Näytä miten vastaisit viestiin, joka saa sinut punastumaan.",
+      "Keksi kahdelle pelaajalle fiktiivinen treffipaikka.",
+      "Sano seuraava lause mahdollisimman itsevarmalla flirttiäänellä.",
+      "Valitse joku, joka saa päättää sinulle uuden romanttisen lempinimen.",
+      "Kerro yksi turn-on ilman selittelyä tai ota rangaistus.",
+      "Kerro yksi turn-off mahdollisimman diplomaattisesti.",
+      "Anna oikealla olevalle pelaajalle kohteliaisuus hänen energiastaan.",
+      "Valitse pelaaja ja tehkää toisillenne parhaat runway-ilmeet.",
+      "Keksi tälle porukalle kuvitteellinen reality-deittiohjelman nimi.",
+      "Pidä 10 sekunnin myyntipuhe siitä, miksi olisit hyvä treffeillä.",
+      "Kerro millainen emoji kuvaisi flirttityyliäsi.",
+      "Valitse pelaaja ja anna hänelle fiktiivinen salainen ihailija -kirje yhdellä virkkeellä.",
+      "Kerro yksi asia, jonka huomaat ihmisessä ensimmäisenä.",
+      "Tee dramaattinen reaktio siihen, että saat söpön viestin.",
+      "Valitse joku ja keksikää teille yhteinen sisäpiirivitsi.",
+      "Näytä ilme, jolla yrittäisit pelastaa kiusallisen hiljaisuuden.",
+      "Kysy porukalta: kuka olisi paras suunnittelemaan treffit?",
+      "Anna yhdelle pelaajalle uusi kohtelias mutta flirttaileva titteli.",
+      "Kerro millaisen viestin lähettäisit ihastukselle, mutta älä lähetä sitä.",
+      "Tee 5 sekunnin slow motion -sisääntulo.",
+      "Valitse pelaaja, joka saa antaa sinulle kevyen sanallisen haasteen.",
+      "Kerro yksi romanttinen klisee, josta pidät.",
+      "Lue seuraava lause kuin se olisi flirttaileva traileri.",
+      "Valitse joku ja vaihtakaa paikkoja, jos molemmat haluatte, tai ota rangaistus.",
+      "Keksi porukalle yhteinen red flag -varoitusmerkki leikillä.",
+      "Anna yhdelle pelaajalle kehu hänen tyylistään.",
+      "Sano yksi asia, joka tekee illasta paremmat treffit kuin tavallinen ilta.",
+      "Kerro kenet valitsisit tiimiisi flirttivisassa.",
+      "Näytä viaton ilmeesi, kun tiedät tehneesi jotain flirttailevaa.",
+      "Valitse joku, joka saa kysyä sinulta kyllä/ei-kysymyksen ihastuksista.",
+      "Kerro yksi asia, joka saa sinut vastaamaan viestiin nopeasti.",
+      "Pidä 5 sekunnin katsekontakti koko porukalle vuorotellen tai ota rangaistus.",
+      "Keksi itsellesi flirttaileva tunnuslause.",
+      "Anna yhdelle pelaajalle hyväntahtoinen spicy-haaste ilman fyysistä kontaktia.",
     ],
   },
   wild: {
-    truth: [
+    truths: [
       "Kuka tässä porukassa olisi vaarallisin flirtti?",
       "Kuka tässä porukassa voisi saada sinut tekemään tyhmän päätöksen?",
       "Mikä on rohkein asia, jonka olet tehnyt bileissä?",
@@ -229,26 +359,105 @@ const truthOrDareModes = {
       "Mikä on rohkein viesti, jonka olet lähettänyt?",
       "Kuka tässä porukassa saa sinut hermostumaan hyvällä tavalla?",
       "Mikä on villein asia, jonka uskaltaisit tehdä tässä pelissä?",
+      "Kuka tässä porukassa saisi sinut ottamaan turvallisen riskin?",
+      "Mikä on bilepäätös, jota kaduit vähän mutta josta tuli hyvä tarina?",
+      "Oletko koskaan vaihtanut paikkaa vain päästäksesi jonkun viereen?",
+      "Kuka tässä porukassa olisi paras salainen ihastus?",
+      "Mikä on rohkein kehu, jonka voisit sanoa ääneen?",
+      "Oletko koskaan saanut poskisuudelmaa pelissä?",
+      "Kuka tässä porukassa saisi sinut punastumaan helpoiten?",
+      "Mikä on tilanne, jossa tunnelma muuttui yhtäkkiä liian jännittäväksi?",
+      "Oletko koskaan miettinyt, ketä tässä porukassa suutelisit, jos molemmat haluaisivat?",
+      "Mikä on rohkein asia, jonka olet jättänyt kertomatta kaverille?",
+      "Kuka tässä porukassa olisi todennäköisin aloittamaan Wild-haasteen?",
+      "Mikä on suurin bileissä tehty tyylimuutoksesi?",
+      "Oletko koskaan menettänyt asusteen tai ylimääräisen vaatekerroksen pelin takia?",
+      "Kuka tässä porukassa näyttäisi parhaimmalta catwalkissa?",
+      "Mikä on villi mutta turvallinen haaste, jonka tekisit nyt?",
+      "Oletko koskaan jäänyt kiinni liian rohkeasta flirtistä?",
+      "Kuka tässä porukassa olisi paras pitämään rohkean salaisuuden?",
+      "Mikä on ilta, jonka yksityiskohdat jäivät tarkoituksella kertomatta?",
+      "Kuka tässä porukassa voisi olla illan suurin yllätys?",
+      "Mikä on rohkein asia, jonka sanoisit ihastukselle kasvotusten?",
+      "Oletko koskaan antanut liian pitkän katseen ja tajunnut sen?",
+      "Kuka tässä porukassa olisi paras tekemään ensimmäisen siirron suostumuksella?",
+      "Mikä on jännittävin viaton kosketus, jonka muistat?",
+      "Oletko koskaan ajatellut, että peli meni melkein liian kiinnostavaksi?",
+      "Kuka tässä porukassa saisi sinut hyväksymään rohkean mutta turvallisen tehtävän?",
+      "Mikä on paljastus, joka muuttaisi muiden käsitystä sinusta hyvällä tavalla?",
+      "Oletko koskaan ollut tilanteessa, jossa kaikki odottivat sinun vastaustasi?",
+      "Kuka tässä porukassa voisi saada sinut nauramaan kesken jännittävän hetken?",
+      "Mikä on suudelmaan liittyvä muisto, jonka voit kertoa hyvällä maulla?",
+      "Oletko koskaan tehnyt jotain villiä vain siksi, että ilta tuntui oikealta?",
+      "Kuka tässä porukassa olisi paras valitsemaan sinulle turvallisen Wild-haasteen?",
+      "Mikä on rohkein mutta täysin vapaaehtoinen tehtävä, jonka hyväksyisit?",
+      "Oletko koskaan jättänyt kertomatta, kenestä olit kiinnostunut?",
+      "Kuka tässä porukassa voisi saada sinut unohtamaan ujoutesi?",
+      "Mikä on asia, jonka tekisit vain tutussa ja turvallisessa porukassa?",
+      "Oletko koskaan pitänyt salaa jonkun tavasta flirttailla?",
+      "Kuka tässä porukassa olisi paras pari sinulle leikkimieliseen haasteeseen?",
+      "Mikä on rohkein kysymys, johon vastaisit juuri nyt?",
+      "Oletko koskaan päätynyt tilanteeseen, josta tuli seuraavan päivän legenda?",
+      "Kuka tässä porukassa näyttää rauhalliselta mutta voisi yllättää Wild-moodissa?",
     ],
-    dare: [
-      "Suutele valitsemaasi pelaajaa poskelle — vain jos molemmat suostuvat. Muuten ota rangaistus.",
-      "Anna valitsemallesi pelaajalle käsi- tai poskisuudelma vain jos molemmat haluavat. Muuten ota rangaistus.",
+    dares: [
+      "Suutele valitsemaasi pelaajaa poskelle vain jos molemmat suostuvat — muuten ota rangaistus.",
+      "Anna valitsemallesi pelaajalle käsi- tai poskisuudelma vain jos molemmat suostuvat — muuten ota rangaistus.",
       "Ota pois yksi asuste, kuten hattu, koru, huppari tai takki — tai ota rangaistus.",
       "Jos sinulla on takki, huppari tai ylimääräinen vaate päällä, ota se pois kierroksen ajaksi tai ota rangaistus.",
       "Valitse joku ja pitäkää katsekontakti 15 sekuntia — tai ota rangaistus.",
-      "Valitse joku, jonka kanssa ottaisit yhteiskuvan. Ota kuva tai ota rangaistus.",
+      "Valitse joku, jonka kanssa ottaisit yhteiskuvan. Ota kuva vain jos molemmat haluatte — muuten ota rangaistus.",
       "Valitse pelaaja: hän saa antaa sinulle rohkean mutta turvallisen haasteen. Tee se tai ota rangaistus.",
       "Kerro kuka tässä porukassa on eniten sinun tyyppiäsi, tai ota rangaistus.",
       "Anna valitsemallesi pelaajalle kehu, joka on vähän liian rohkea, tai ota rangaistus.",
-      "Valitse joku ja vaihtakaa paikkaa loppukierroksen ajaksi.",
-      "Anna jonkun pelaajan päättää sinulle kevyt rooli seuraavaksi kierrokseksi.",
+      "Valitse joku ja vaihtakaa paikkaa loppukierroksen ajaksi — tai ota rangaistus.",
+      "Anna jonkun pelaajan päättää sinulle kevyt rooli seuraavaksi kierrokseksi — tai ota rangaistus.",
       "Tee dramaattinen catwalk-hidas kävely huoneen poikki tai ota rangaistus.",
-      "Valitse pelaaja ja sanokaa toisillenne yksi viehättävä asia.",
+      "Valitse pelaaja ja sanokaa toisillenne yksi viehättävä asia — tai ota rangaistus.",
       "Anna valitsemallesi pelaajalle lupa kysyä sinulta yksi erittäin rohkea kysymys. Vastaa tai ota rangaistus.",
-      "Jos uskallat, kerro kenelle antaisit poskisuudelman tässä porukassa. Muuten ota rangaistus.",
+      "Jos uskallat, kerro kenelle antaisit poskisuudelman tässä porukassa vain jos molemmat suostuisitte. Muuten ota rangaistus.",
+      "Valitse joku ja tehkää 10 sekunnin tanssikohtaus ilman kosketusta — tai ota rangaistus.",
+      "Anna valitsemallesi pelaajalle poskisuudelma vain jos molemmat suostuvat — muuten ota rangaistus.",
+      "Valitse joku ja pitäkää kädestä 10 sekuntia vain jos molemmat suostuvat — muuten ota rangaistus.",
+      "Kerro yksi rohkea mutta turvallinen fantasia täydellisestä bilehetkestä tai ota rangaistus.",
+      "Valitse pelaaja ja antakaa toisillenne rohkea kehu — tai ota rangaistus.",
+      "Ota yhteiskuva valitsemasi pelaajan kanssa vain jos molemmat haluatte — muuten ota rangaistus.",
+      "Vaihda paikkaa kiinnostavimman vapaaehtoisen viereen — tai ota rangaistus.",
+      "Valitse joku ja tehkää leikkimielinen promokuvausposeeraus vain jos molemmat suostuvat — muuten ota rangaistus.",
+      "Kerro kenelle antaisit rohkean kehun ja sano se ääneen — tai ota rangaistus.",
+      "Anna valitsemallesi pelaajalle turvallinen Wild-haaste. Hän saa skipata ja ottaa rangaistuksen.",
+      "Valitse joku ja katsokaa toisianne silmiin 20 sekuntia vain jos molemmat suostuvat — muuten ota rangaistus.",
+      "Ota pois ylimääräinen asuste ja anna sille dramaattinen jäähyväispuhe — tai ota rangaistus.",
+      "Kerro rohkein viesti, jonka voisit lähettää, mutta älä lähetä sitä — tai ota rangaistus.",
+      "Valitse pelaaja ja pyydä häntä keksimään sinulle villi mutta turvallinen lempinimi — tai ota rangaistus.",
+      "Tee catwalk ja osoita lopuksi valitsemaasi pelaajaa kehuen — tai ota rangaistus.",
+      "Kerro keneltä ottaisit vastaan poskisuudelman vain jos molemmat suostuisivat — tai ota rangaistus.",
+      "Valitse joku ja tehkää yhteinen voitonposeeraus vain jos molemmat suostuvat — muuten ota rangaistus.",
+      "Kerro yksi salainen ihastusvihje ilman nimiä — tai ota rangaistus.",
+      "Anna valitsemallesi pelaajalle kädelle suudelma vain jos molemmat suostuvat — muuten ota rangaistus.",
+      "Valitse kaksi vapaaehtoista tekemään draamallinen saippuasarjakohtaus ilman kosketusta — tai ota rangaistus.",
+      "Kerro mikä asuste tässä huoneessa sopisi sinulle parhaiten — tai ota rangaistus.",
+      "Valitse joku ja vaihtakaa jokin asuste keskenään vain jos molemmat suostuvat — muuten ota rangaistus.",
+      "Pidä rohkea mutta kohtelias maljapuhe valitsemallesi pelaajalle — tai ota rangaistus.",
+      "Kerro yksi asia, joka tekee jostakusta tässä porukassa viehättävän — tai ota rangaistus.",
+      "Valitse pelaaja ja kysykää toisiltanne yksi Wild-kysymys. Kumpikin saa skipata ja ottaa rangaistuksen.",
+      "Tee 15 sekunnin hidas tanssiliike yksin tai ota rangaistus.",
+      "Valitse joku ja istukaa vierekkäin seuraava kierros vain jos molemmat suostuvat — muuten ota rangaistus.",
+      "Kerro rohkein bilemuistosi yhdellä lauseella tai ota rangaistus.",
+      "Anna valitsemallesi pelaajalle poskelle ilmasuudelma ilman kosketusta — tai ota rangaistus.",
+      "Valitse joku ja tehkää yhteinen sydän käsillä vain jos molemmat suostuvat — muuten ota rangaistus.",
+      "Kerro kenet valitsisit turvapariksi Wild-haasteeseen — tai ota rangaistus.",
+      "Pyydä vapaaehtoista antamaan sinulle turvallinen rooli loppukierrokselle — tai ota rangaistus.",
+      "Kerro mikä olisi turvallinen rajasi Wild-tehtävissä — tai ota rangaistus.",
+      "Valitse joku ja antakaa toisillenne yksi sana, joka kuvaa tunnelmaanne — tai ota rangaistus.",
+      "Tee rohkein hyväksyttävä poseerauksesi kameralle, ilman kuvan ottamista — tai ota rangaistus.",
+      "Valitse joku ja sanokaa ääneen, että molemmat saavat skipata minkä tahansa tehtävän — tai ota rangaistus.",
+      "Kerro, mikä tehtävä olisi sinulle liian rohkea, ja ota rangaistus jos et halua vastata.",
     ],
   },
 };
+
+const truthOrDareModes = truthOrDareContent;
 
 const diceModes = {
   chill: {
@@ -665,6 +874,16 @@ function nextAction() {
     return;
   }
 
+  if (game?.type === "truthDare") {
+    const session = state.sessions[game.id];
+    if (session?.currentCard) {
+      session.currentCard = null;
+      session.currentChoice = null;
+      renderTruthOrDare(game);
+    }
+    return;
+  }
+
   renderActiveGame(false);
 }
 
@@ -674,9 +893,11 @@ function renderActiveGame(isFirstRender = false) {
     return;
   }
 
-  elements.roundLabel.textContent = getModeConfig().label;
+  const mode = getModeConfig();
+  elements.roundLabel.textContent = `${mode.title} ${mode.icon}`;
   elements.wildSkipButton.hidden = state.currentMode !== "wild";
   elements.primaryPlayAction.hidden = false;
+  elements.primaryPlayAction.disabled = false;
 
   const renderers = {
     question: () => renderQuestionGame(game, isFirstRender),
@@ -712,7 +933,9 @@ function renderQuestionGame(game, isFirstRender) {
 
 function renderTruthOrDare(game) {
   const session = state.sessions[game.id];
-  elements.primaryPlayAction.hidden = true;
+  elements.primaryPlayAction.hidden = false;
+  elements.primaryPlayAction.disabled = !session?.currentCard;
+  elements.primaryPlayAction.textContent = "Seuraava";
   elements.wildSkipButton.hidden = state.currentMode !== "wild" || !session?.currentCard;
 
   const turn = state.players.length ? `Vuorossa: ${state.players[session.turnIndex % state.players.length]}` : "";
@@ -744,11 +967,8 @@ function handleTruthDareChoice(choice) {
   }
 
   const session = state.sessions[game.id];
-  const modeData = getModeData(game, state.currentMode);
-  const cards = modeData[choice] || modeData.truth || [];
-  const key = `${game.id}:${state.currentMode}:${choice}`;
   session.currentChoice = choice;
-  session.currentCard = getNextFromDeck(key, cards);
+  session.currentCard = getNextTruthOrDareCard(state.currentMode, choice);
   session.turnIndex += 1;
   renderTruthOrDare(game);
 }
@@ -1071,6 +1291,19 @@ function getCardsForGameAndMode(gameId, mode = state.currentMode) {
   return Array.isArray(modeCards) ? modeCards : [];
 }
 
+function getTruthOrDareCards(mode = state.currentMode, type = "truth") {
+  const modeData = truthOrDareContent[mode] || truthOrDareContent.chill;
+  const normalizedType = type === "dare" || type === "dares" ? "dares" : "truths";
+  const fallbackType = normalizedType === "dares" ? "dare" : "truth";
+  return modeData[normalizedType] || modeData[fallbackType] || truthOrDareContent.chill[normalizedType] || [];
+}
+
+function getNextTruthOrDareCard(mode = state.currentMode, type = "truth") {
+  const normalizedType = type === "dare" || type === "dares" ? "dare" : "truth";
+  const cards = getTruthOrDareCards(mode, normalizedType);
+  return getNextFromDeck(`truth-or-dare:${mode}:${normalizedType}`, cards);
+}
+
 function getModeData(game, mode = state.currentMode) {
   return game?.modes?.[mode] || game?.modes?.chill || game?.modes?.default || {};
 }
@@ -1296,6 +1529,8 @@ window.partyDeckDebug = {
   getCurrentMode,
   setCurrentMode,
   getCardsForGameAndMode,
+  getTruthOrDareCards,
+  getNextTruthOrDareCard,
   shuffleCards,
   getNextCard,
   createDeck,
