@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="PartyDeck on mobiiliystävällinen juomapeli-iltojen web-sovellus."
+    />
+    <title>PartyDeck</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="screen start-screen is-active" data-screen="start">
+        <div class="brand-lockup">
+          <p class="eyebrow">Juomapeli-iltaan</p>
+          <h1>PartyDeck</h1>
+          <p class="lead">Valitse peli, lisää pelaajat ja aloita.</p>
+        </div>
+        <button class="primary-action" type="button" data-action="start">Aloita</button>
+        <p class="responsible-note">Pelaa omalla vastuulla. Pidä taukoja ja juo vettä.</p>
+      </section>
+
+      <section class="screen menu-screen" data-screen="menu">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">PartyDeck</p>
+            <h2>Pelin valinta</h2>
+          </div>
+        </header>
+
+        <section class="panel players-panel" aria-labelledby="players-title">
+          <div class="section-heading">
+            <div>
+              <h3 id="players-title">Pelaajat</h3>
+              <p>Lisää nimet tai pelaa ilman listaa.</p>
+            </div>
+            <button class="ghost-button small" type="button" data-action="reset-players">
+              Resetoi pelaajat
+            </button>
+          </div>
+          <form class="player-form" data-player-form>
+            <label class="sr-only" for="player-name">Pelaajan nimi</label>
+            <input
+              id="player-name"
+              name="player"
+              type="text"
+              autocomplete="off"
+              maxlength="24"
+              placeholder="Pelaajan nimi"
+            />
+            <button class="secondary-action" type="submit">Lisää</button>
+          </form>
+          <ul class="player-list" data-player-list aria-live="polite"></ul>
+        </section>
+
+        <section class="game-grid" aria-label="Pelit" data-game-list></section>
+      </section>
+
+      <section class="screen play-screen" data-screen="play">
+        <header class="topbar game-topbar">
+          <button class="icon-button" type="button" data-action="back-menu" aria-label="Takaisin valikkoon">
+            <span aria-hidden="true">←</span>
+          </button>
+          <div>
+            <p class="eyebrow" data-round-label>Kierros</p>
+            <h2 data-game-title>Peli</h2>
+          </div>
+          <button class="ghost-button small" type="button" data-action="show-rules">Säännöt</button>
+        </header>
+
+        <article class="prompt-card" data-prompt-card>
+          <p class="prompt-kicker" data-prompt-kicker>Pakka valmis</p>
+          <p class="prompt-text" data-prompt-text>Valitse seuraava kortti.</p>
+          <p class="target-player" data-target-player></p>
+        </article>
+
+        <div class="play-actions">
+          <button class="primary-action" type="button" data-action="next-card">Seuraava</button>
+          <button class="ghost-button" type="button" data-action="back-menu">Takaisin valikkoon</button>
+        </div>
+      </section>
+    </main>
+
+    <div class="rules-modal" data-rules-modal hidden>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="rules-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Säännöt</p>
+            <h3 id="rules-title" data-rules-title>Pelin säännöt</h3>
+          </div>
+          <button class="icon-button" type="button" data-action="close-rules" aria-label="Sulje säännöt">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <p data-rules-text></p>
+      </div>
+    </div>
+
+    <footer>PartyDeck prototype</footer>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
