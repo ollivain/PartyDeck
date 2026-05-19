@@ -61,11 +61,29 @@
           <ul class="player-list" data-player-list aria-live="polite"></ul>
         </section>
 
-        <section class="panel settings-panel" aria-labelledby="settings-title">
-          <div class="setting-row">
+        <section class="game-grid" aria-label="Pelit" data-game-list></section>
+      </section>
+
+      <section class="screen setup-screen" data-screen="setup">
+        <header class="topbar game-topbar">
+          <button class="icon-button" type="button" data-action="back-menu" aria-label="Takaisin valikkoon">
+            <span aria-hidden="true">←</span>
+          </button>
+          <div>
+            <p class="eyebrow">Peli valittu</p>
+            <h2 data-setup-title>Valmistaudu</h2>
+          </div>
+        </header>
+
+        <article class="setup-card">
+          <p class="setup-badge" data-setup-badge>Valittu pakka</p>
+          <h3 data-setup-heading>Aloitetaanko?</h3>
+          <p data-setup-description>Valitse asetukset ennen ensimmäistä korttia.</p>
+
+          <div class="setting-row setup-setting">
             <div>
-              <h3 id="settings-title">Pelin asetukset</h3>
-              <p>Voit päättää tuleeko väliin vesitaukokortteja.</p>
+              <h3>Vesitauot</h3>
+              <p>Satunnainen muistutus voi ilmestyä kysymysten väliin.</p>
             </div>
             <label class="toggle-control">
               <input type="checkbox" data-water-break-toggle />
@@ -73,9 +91,12 @@
               <span class="toggle-text" data-water-break-label>Päällä</span>
             </label>
           </div>
-        </section>
+        </article>
 
-        <section class="game-grid" aria-label="Pelit" data-game-list></section>
+        <div class="play-actions">
+          <button class="primary-action" type="button" data-action="begin-game">Aloita peli</button>
+          <button class="ghost-button" type="button" data-action="back-menu">Takaisin valikkoon</button>
+        </div>
       </section>
 
       <section class="screen play-screen" data-screen="play">

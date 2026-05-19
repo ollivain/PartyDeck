@@ -202,6 +202,7 @@ const state = {
 const screens = {
   start: document.querySelector('[data-screen="start"]'),
   menu: document.querySelector('[data-screen="menu"]'),
+  setup: document.querySelector('[data-screen="setup"]'),
   play: document.querySelector('[data-screen="play"]'),
 };
 
@@ -212,6 +213,10 @@ const elements = {
   playerList: document.querySelector("[data-player-list]"),
   waterBreakToggle: document.querySelector("[data-water-break-toggle]"),
   waterBreakLabel: document.querySelector("[data-water-break-label]"),
+  setupTitle: document.querySelector("[data-setup-title]"),
+  setupBadge: document.querySelector("[data-setup-badge]"),
+  setupHeading: document.querySelector("[data-setup-heading]"),
+  setupDescription: document.querySelector("[data-setup-description]"),
   gameTitle: document.querySelector("[data-game-title]"),
   roundLabel: document.querySelector("[data-round-label]"),
   promptCard: document.querySelector("[data-prompt-card]"),
@@ -239,6 +244,7 @@ function handleClick(event) {
   if (action === "start") showScreen("menu");
   if (action === "back-menu") showScreen("menu");
   if (action === "reset-players") resetPlayers();
+  if (action === "begin-game") beginGame();
   if (action === "next-card") showNextCard();
   if (action === "show-rules") showRules();
   if (action === "close-rules") closeRules();
@@ -328,6 +334,19 @@ function startGame(gameId, variantId) {
   state.activeVariantId = variantId;
   const game = getActiveGame();
   const variant = getActiveVariant();
+  elements.setupTitle.textContent = `${game.title}: ${variant.title}`;
+  elements.setupBadge.textContent = `${variant.badge} · ${variant.prompts.length} korttia`;
+  elements.setupHeading.textContent = game.title;
+  elements.setupDescription.textContent = variant.description;
+  elements.gameTitle.textContent = `${game.title}: ${variant.title}`;
+  showScreen("setup");
+}
+
+function beginGame() {
+  const game = getActiveGame();
+  const variant = getActiveVariant();
+  if (!game || !variant) return;
+
   elements.gameTitle.textContent = `${game.title}: ${variant.title}`;
   showScreen("play");
   showNextCard({ forcePrompt: true });
