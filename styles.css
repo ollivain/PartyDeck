@@ -208,6 +208,95 @@ input:focus {
   list-style: none;
 }
 
+.mode-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 14px;
+}
+
+.mode-card {
+  position: relative;
+  min-height: 108px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 18px;
+  padding: 12px;
+  color: var(--text);
+  text-align: left;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.mode-card::after {
+  position: absolute;
+  inset: auto -28px -36px auto;
+  width: 86px;
+  height: 86px;
+  border-radius: 999px;
+  content: "";
+  opacity: 0.42;
+  background: var(--accent-2);
+}
+
+.mode-card.chill::after {
+  background: #65e89f;
+}
+
+.mode-card.spicy::after {
+  background: #ff8a3d;
+}
+
+.mode-card.wild::after {
+  background: #b96cff;
+}
+
+.mode-card.is-active {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.46);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.09));
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.26);
+}
+
+.mode-card span,
+.mode-card strong,
+.mode-card small {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.mode-icon {
+  margin-bottom: 8px;
+  font-size: 1.45rem;
+}
+
+.mode-card strong {
+  margin-bottom: 4px;
+  font-size: 0.98rem;
+}
+
+.mode-card small {
+  color: var(--muted);
+  font-size: 0.74rem;
+  line-height: 1.25;
+}
+
+.wild-note {
+  margin: 12px 0 0;
+  border: 1px solid rgba(255, 118, 118, 0.28);
+  border-radius: 14px;
+  padding: 10px 12px;
+  color: #ffe1e1;
+  background: rgba(255, 118, 118, 0.12);
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
+.wild-confirm[hidden] {
+  display: none;
+}
+
 .setting-row {
   display: flex;
   align-items: center;
@@ -634,6 +723,16 @@ input:focus {
   gap: 10px;
 }
 
+.play-actions[hidden] {
+  display: none;
+}
+
+.wild-skip {
+  border: 1px solid rgba(255, 118, 118, 0.32);
+  color: #ffe1e1;
+  background: rgba(255, 118, 118, 0.13);
+}
+
 .primary-action,
 .secondary-action,
 .ghost-button,
@@ -792,6 +891,10 @@ footer {
   }
 
   .choice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mode-grid {
     grid-template-columns: 1fr;
   }
 
